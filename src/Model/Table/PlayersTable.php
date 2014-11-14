@@ -24,6 +24,13 @@ class PlayersTable extends Table {
 		
 		$this->addBehavior('Timestamp');
 		$this->addBehavior('Sluggable', ['field' => 'FullName']);
+		$this->addBehavior('Upload.Upload', [
+			'uploadFields' => [
+				'photo' => [
+					'dir' => 'photo_dir'
+				]
+			]
+		]);
 
 		$this->belongsTo('PlayerSpecialisations', [
 			'foreignKey' => 'player_specialisation_id',
